@@ -1,0 +1,43 @@
+.artist-page {
+  width: 50%;
+  margin: 50px auto;
+  border: 1px solid black;
+  padding-top: 1.5em;
+  padding-left: 2em;
+  padding-bottom: 2em;
+  min-width: 680px;
+  font-size: 20px;
+}
+
+#error-name {
+  color: red;
+  display: none;
+  opacity: 1;
+  transition: opacity 200ms ease-out
+}
+
+.artist-page > h1 {
+  margin-bottom: 50px;
+}
+
+
+#edit-name {
+  margin-bottom: 10px;
+  margin-left: 3em;
+  margin-right: 10px;
+  width: 70%;
+  font-size: 20px;
+}
+
+#edit-url {
+  margin-left: 0.95em;
+  width: 70%;
+  font-size: 20px;
+}
+
+.button-submit, .button-back {
+  margin-top: 60px;
+  width: 80px;
+  font-size: 20px;
+  margin-right: 20px;
+}

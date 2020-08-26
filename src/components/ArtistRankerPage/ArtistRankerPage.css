@@ -1,0 +1,22 @@
+.artist-ranker {
+  width: 70%;
+  margin: 0 auto;
+}
+
+form + hr {
+  margin-top: 20px;
+}
+
+#error-artist-input {
+  color: red;
+  margin-top: 15px;
+  margin-left: 10px;
+  display: none;
+  opacity: 1;
+  transition: opacity 200ms ease-out;
+}
+
+#submit-button {
+  width: 60px;
+  margin-top: 15px;
+}
