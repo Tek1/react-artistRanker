@@ -1,35 +1,25 @@
 import React, { useContext } from 'react';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
-import ArtistContext from '../../ArtistContext';
+import { store } from '../../store';
 
-function AddRemoveStarButtons() {
-  const { artistList, setArtistList } = useContext(ArtistContext);
+function AddRemoveStarButtons(props) {
+  const { dispatch } = useContext(store);
+
   function addStar(event) {
     event.stopPropagation();
-    const artistId = event.target.closest('[data-id]').getAttribute('data-id');
-    const updatedArtistObj = artistList.map((artistObj) => (artistObj.Id.toString() === artistId
-      ? { ...artistObj, stars: artistObj.stars + 1 } : artistObj));
-    setArtistList(updatedArtistObj);
+    dispatch({ type: 'addStar', payload: { artistId: props.artistId } });
   }
 
-  function removeStar(event) {
+  function subtractStar(event) {
     event.stopPropagation();
-    const artistId = event.target.closest('[data-id]').getAttribute('data-id');
-    const artistObject = artistList.find((artistObj) => artistObj.Id.toString() === artistId);
-    if (artistObject.stars === 0) {
-      return;
-    }
-
-    const updatedArtistObj = artistList.map((artistObj) => (artistObj.Id.toString() === artistId
-      ? { ...artistObj, stars: artistObj.stars - 1 } : artistObj));
-    setArtistList(updatedArtistObj);
+    dispatch({ type: 'subtractStar', payload: { artistId: props.artistId } });
   }
 
   return (
     <span>
       <AddCircleOutlineIcon fontSize="large" onClick={addStar} />
-      <RemoveCircleOutlineIcon fontSize="large" onClick={removeStar} />
+      <RemoveCircleOutlineIcon fontSize="large" onClick={subtractStar} />
     </span>
   );
 }

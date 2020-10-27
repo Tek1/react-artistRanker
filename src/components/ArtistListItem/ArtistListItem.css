@@ -1,0 +1,4 @@
+.artist-stats > div > span:nth-child(3) {
+  position: absolute;
+  right: 30%;
+}
