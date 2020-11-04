@@ -5,7 +5,7 @@ import './ArtistRankerPage.css';
 
 function ArtistRankerPage() {
   const { dispatch } = useContext(store);
-  function works(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     dispatch({ type: 'addArtist', payload: { name: document.getElementById('add-artist-name').value } });
   }
@@ -15,7 +15,7 @@ function ArtistRankerPage() {
       <h1>Artist Ranker</h1>
       <hr />
       <h2>ADD ARTIST</h2>
-      <form onSubmit={works}>
+      <form onSubmit={handleSubmit}>
         <input id="add-artist-name" type="text" required />
         <br />
         <input id="submit-button" type="submit" />
